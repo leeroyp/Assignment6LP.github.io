@@ -110,8 +110,8 @@ function returnUVIndex(coordinates) {
 
 function createHistoryButton(cityName) {
     // Check if the button exists in history, and if it does, exit the function
-    var citySearch = cityName.trim();
-    var buttonCheck = $(`#previousSearch > BUTTON[value='${citySearch}']`);
+    let citySearch = cityName.trim();
+    let buttonCheck = $(`#previousSearch > BUTTON[value='${citySearch}']`);
     if (buttonCheck.length == 1) {
       return;
     }
