@@ -6,85 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" type="text/css" href="styles.css"> -->
+    <link rel="stylesheet" type="text/css" href="style.css">
 
     <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <h2>Weather Dashboard</h2>
+    <nav class="navbar navbar-dark bg-dark d-flex justify-content-center">
+        <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
     </nav>
 
-
-
     <div class="container">
-
         <div class="row">
+            <div class="col-md-3 searchColumn">
+                <form>
+                    <h3>Search for a City:</h3>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="cityInput" placeholder="Enter City">
+                        <div class="input-group-append">
+                            <button type="submit" id="submitCity" class="btn btn-primary fas fa-search"></button>
+                        </div>
+                    </div>
+                </form>
 
-            <!-- we gona use this column to appen the seacch for and button -->
-            <div class="col-4">
-                <h5>Search for a city:</h5>
-                <div class="form-inline my-2 my-lg-0">
-
-                    
-                    
-
-
-                    <input id="search" class="form-control mr-sm-2" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <button id="searchBtn" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </div>
-
-                <div class="card" >
-                    <ul class="list-group list-group-flush list">
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="col-8">
-                <div id="currentCity">
+                <div id="previousSearch" class="btn-group-vertical">
 
                 </div>
 
             </div>
 
+            <div class="col-md-9">
+                <div id="currentWeather">
+                    <h2>Current Weather Here</h2>
+                </div>
+                <div>
+                    <h3>5-Day Forecast:</h3>
+                    <div class="row" id="weatherForecast">
+
+                    </div>
+                </div>
+            </div>
         </div>
-    
-
-    <!-- Start forecast container -->
-    <div class="mt-4 col-md-12">
-
-        <h5 id="forecastH5" class="mt-3 hide">5-Day Forecast:</h5>
-
-        <!-- Start row -->
-        <div id="forecast" class="row">
-
-
-        </div>
-        <!-- End row -->
-    </div>
-    <!-- End forecast container -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="script.js"></script>
-
 </body>
-
 </html>
