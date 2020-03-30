@@ -107,11 +107,10 @@ function returnUVIndex(coordinates) {
         currWeatherDiv.append(`<p>UV Index: <span class="text-${textColour} uvPadding" style="background-color: ${uvSeverity};">${currUVIndex}</span></p>`);
     })
 }
-
+//  the functions will push each city seached to our array of cities, we also added some if statements to check if the city is already in the array so  there is no dublicates 
 function createHistoryButton(cityName) {
-    // Check if the button exists in history, and if it does, exit the function
     let citySearch = cityName.trim();
-    let buttonCheck = $(`#previousSearch > BUTTON[value='${citySearch}']`);
+    var buttonCheck = $(`#previousSearch > BUTTON[value='${citySearch}']`);
     if (buttonCheck.length == 1) {
       return;
     }
@@ -143,13 +142,17 @@ $("#submitCity").click(function() {
     returnWeatherForecast(cityName);
 });
 
+
+// this will activate our "city " buttons and target the value of each button so we can show the weather for that specific city
 $("#previousSearch").click(function() {
     let cityName = event.target.value;
 
     console.log(cityName)
-    // returnCurrentWeather(cityName);
-    // returnWeatherForecast(cityName);
+    returnCurrentWeather(cityName);
+    returnWeatherForecast(cityName);
 })
+
+//need to figure out a way to clear the storage . the fucntion below kinda works 
 
 // $(document).ready(function() {
 //     localStorage.clear("localWeatherSearches");
