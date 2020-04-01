@@ -25,6 +25,8 @@ Moment.js
 
 Open Weather API
 
-codeSnip.png
+code Snippet
+
+![](Images/codeSnip.png)
 
 
