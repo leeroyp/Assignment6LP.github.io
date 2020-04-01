@@ -7,13 +7,21 @@ Technologies
 This project is created with:
 
 Bootstrap 4
+
 CSS
+
 Font Awesome
+
 HTML:5
+
 JavaScript
+
 jQuery
+
 Moment.js
+
 Open Weather API
 
 codeSnip.png
+
 
