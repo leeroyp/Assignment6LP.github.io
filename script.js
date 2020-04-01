@@ -3,6 +3,15 @@ var currWeatherDiv = $("#currentWeather");
 var forecastDiv = $("#weatherForecast");
 var citiesArray;
 
+$(document).ready(function() {
+      localStorage.clear();
+      $('#previousSearch').empty()
+
+      console.log("okay fresh page")
+      //localStorage.removeItem("name of localStorage variable you want to remove");
+  });
+
+
 if (localStorage.getItem("localWeatherSearches")) {
     citiesArray = JSON.parse(localStorage.getItem("localWeatherSearches"));
     writeSearchHistory(citiesArray);
@@ -13,7 +22,8 @@ if (localStorage.getItem("localWeatherSearches")) {
 
 
 
-function returnCurrentWeather(cityName) {
+
+function getCurrentWeather(cityName) {
     let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=${apiKey}`;
 
     $.ajax({
@@ -21,10 +31,6 @@ function returnCurrentWeather(cityName) {
         url: queryURL,
         method: 'GET'
     }).then (function (response){
-
-       
-
-    
         let currTime = new Date(response.dt*1000);
         let weatherIcon = `https://openweathermap.org/img/wn/${response.weather[0].icon}@2x.png`;
 
@@ -38,7 +44,7 @@ function returnCurrentWeather(cityName) {
     })
 };
 
-function returnWeatherForecast(cityName) {
+function getWeatherForecast(cityName) {
     let queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&APPID=${apiKey}`;
 
     $.ajax({
@@ -47,10 +53,6 @@ function returnWeatherForecast(cityName) {
         method: 'GET'
     }).then (function (response){
 
-       
-    
-
-    // $.get(queryURL).then(function(response){
         let forecastInfo = response.list;
         forecastDiv.empty();
         $.each(forecastInfo, function(i) {
@@ -87,7 +89,6 @@ function returnUVIndex(coordinates) {
     }).then(function (response){
 
     
-    // $.get(queryURL).then(function(response){
         let currUVIndex = response.value;
         let uvSeverity = "green";
         let textColour = "white"
@@ -114,7 +115,7 @@ function createHistoryButton(cityName) {
     if (buttonCheck.length == 1) {
       return;
     }
-    
+    //this right here basically  help us to
     if (!citiesArray.includes(cityName)){
         citiesArray.push(cityName);
         localStorage.setItem("localWeatherSearches", JSON.stringify(citiesArray));
@@ -124,7 +125,7 @@ function createHistoryButton(cityName) {
     <button class="btn btn-light cityHistoryBtn" value='${cityName}'>${cityName}</button>
     `);
 }
-
+// we need this function to in oder to write item to the array and push to the storage 
 function writeSearchHistory(array) {
     $.each(array, function(i) {
         createHistoryButton(array[i]);
@@ -132,30 +133,31 @@ function writeSearchHistory(array) {
 }
 
 // Get a deafult weather search
-returnCurrentWeather("Toronto");
-returnWeatherForecast("Toronto");
+getCurrentWeather("Toronto");
+getWeatherForecast("Toronto");
 
 $("#submitCity").click(function() {
     event.preventDefault();
     let cityName = $("#cityInput").val();
-    returnCurrentWeather(cityName);
-    returnWeatherForecast(cityName);
+    getCurrentWeather(cityName);
+    getWeatherForecast(cityName);
+
+    $("#cityInput").empty()
+
 });
-
-
 // this will activate our "city " buttons and target the value of each button so we can show the weather for that specific city
 $("#previousSearch").click(function() {
     let cityName = event.target.value;
 
     console.log(cityName)
-    returnCurrentWeather(cityName);
-    returnWeatherForecast(cityName);
+    getCurrentWeather(cityName);
+    getWeatherForecast(cityName);
 })
 
 //need to figure out a way to clear the storage . the fucntion below kinda works 
 
 // $(document).ready(function() {
-//     localStorage.clear("localWeatherSearches");
+//     localStorage.clear();
 
 //     console.log("okay fresh page")
 //     //localStorage.removeItem("name of localStorage variable you want to remove");
