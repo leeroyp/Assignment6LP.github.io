@@ -6,6 +6,7 @@ var citiesArray;
 $(document).ready(function() {
       localStorage.clear();
       $('#previousSearch').empty()
+      $("#cityInput").empty()
 
       console.log("okay fresh page")
       //localStorage.removeItem("name of localStorage variable you want to remove");
