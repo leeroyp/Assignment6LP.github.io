@@ -20,10 +20,6 @@ if (localStorage.getItem("localWeatherSearches")) {
     citiesArray = [];
 };
 
-
-
-
-
 function getCurrentWeather(cityName) {
     let queryURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=${apiKey}`;
 
