@@ -6,7 +6,8 @@ var citiesArray;
 $(document).ready(function() {
       localStorage.clear();
       $('#previousSearch').empty()
-      $("#cityInput").empty()
+      
+      // $("#cityInput").empty()
 
       console.log("okay fresh page")
       //localStorage.removeItem("name of localStorage variable you want to remove");
@@ -138,8 +139,9 @@ $("#submitCity").click(function() {
     let cityName = $("#cityInput").val();
     getCurrentWeather(cityName);
     getWeatherForecast(cityName);
+    $("#cityInput").val('')
 
-    $("#cityInput").empty()
+    // $("#cityInput").empty()
 
 });
 // this will activate our "city " buttons and target the value of each button so we can show the weather for that specific city
