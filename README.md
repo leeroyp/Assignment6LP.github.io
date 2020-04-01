@@ -24,4 +24,4 @@ Open Weather API
 
 codeSnip.png
 
-
+![Image description](Images/ScreenShot.png)
