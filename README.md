@@ -1,3 +1,6 @@
+Site link:
+https://leeroyp.github.io/Assignment6LP.github.io/
+
 GENERAL INFO
 
 This is a weather dashboard with a search input to find basic weather details of a given city. In this case we are using the OpenWeather API to retrieve weather data for cities. 
